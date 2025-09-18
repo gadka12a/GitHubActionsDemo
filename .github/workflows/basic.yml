@@ -25,7 +25,7 @@ jobs:
         if: ${{ github.event.inputs.warning_analyzer }}" == true
         run: echo checking warnings
       - name: post-action
-        run: uploading artifacts
+        run: echo uploading artifacts
   ut:
     runs-on: ubuntu-latest
     steps:
