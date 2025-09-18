@@ -30,6 +30,19 @@ jobs:
         run: echo test 2
       - name: test 3
         run: echo test 3
-
-      - name: test 3
-        run: exit 1
+  ut:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test 1
+        run: | 
+          ls -la
+          touch test.txt
+          pwd
+          ls -la
+      - name: test 2
+        run: | 
+          ls -la
+          touch test2.txt
+          pwd
+          ls -la
+        
