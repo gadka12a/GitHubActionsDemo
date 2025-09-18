@@ -30,3 +30,6 @@ jobs:
         run: echo test 2
       - name: test 3
         run: echo test 3
+
+      - name: test 3
+        run: echo test 3
