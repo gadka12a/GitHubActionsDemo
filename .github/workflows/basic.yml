@@ -20,11 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        run: echo checkout
+        run: echo -${{ github.event.inputs.warning_analyzer }}-
       - name: build
         run: echo building
       - name: warning-analyzer
-        if: ${{ github.event.inputs.warning_analyzer == true }}
+        if: ${{ github.event.inputs.warning_analyzer }}
         run: |
           echo checking warnings
           echo output ${{ github.event.inputs.warning_analyzer }} end
