@@ -43,4 +43,5 @@ jobs:
           touch test2.txt
           pwd
           ls -la
+          echo test
         
