@@ -20,14 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        run: echo -${{ github.event.inputs.warning_analyzer }}-
+        run: echo Checking out
       - name: build
         run: echo building
       - name: warning-analyzer
         if: ${{ github.event.inputs.warning_analyzer == 'true' }}
-        run: |
-          echo checking warnings
-          echo output ${{ github.event.inputs.warning_analyzer }} end
+        run: echo checking warnings
       - name: post-action
         run: echo uploading artifacts
   ut:
