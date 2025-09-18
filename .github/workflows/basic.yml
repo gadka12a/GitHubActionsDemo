@@ -21,3 +21,7 @@ jobs:
         run: echo test
       - name: test 1
         run: echo test 1
+      - name: test 2
+        run: echo test 2
+      - name: test 3
+        run: echo test 3
