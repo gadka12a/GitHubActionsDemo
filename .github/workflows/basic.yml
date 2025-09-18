@@ -24,7 +24,9 @@ jobs:
         run: echo building
       - name: warning-analyzer
         if: ${{ github.event.inputs.warning_analyzer }}
-        run: echo checking warnings
+        run: |
+          echo checking warnings
+          echo output ${{ github.event.inputs.warning_analyzer }} end
       - name: post-action
         run: echo uploading artifacts
   ut:
