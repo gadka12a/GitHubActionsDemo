@@ -37,7 +37,6 @@ jobs:
           touch test.txt
           pwd
           ls -la
-          sleep 60
       - name: test 2
         run: | 
           ls -la
