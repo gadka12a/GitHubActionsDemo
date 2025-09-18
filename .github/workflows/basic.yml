@@ -19,3 +19,5 @@ jobs:
           echo test, and deploy your project.
       - name: test
         run: echo test
+      - name: test 1
+        run: echo test 1
