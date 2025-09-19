@@ -6,7 +6,7 @@ on:
 
 jobs:
   verify:
-    name: ${{ var.JOB_NAME }}
+    name: ${{ vars.JOB_NAME }}
     if: ${{ vars.EXEC_WF == 'true' }}
     runs-on: ubuntu-latest
 
