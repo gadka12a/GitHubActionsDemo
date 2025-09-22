@@ -64,8 +64,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v5.0.0
+        with:
+          name: build-results
       - name: Get stage
-        run: echo "The build stage is ${{ needs.build.outputs.build-stage }}"
+        run: | 
+          cat build-result.txt
+          echo "The build stage is ${{ needs.build.outputs.build-stage }}"
   ut:
     runs-on: ubuntu-latest
     steps:
