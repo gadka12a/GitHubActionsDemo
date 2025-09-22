@@ -57,6 +57,7 @@ jobs:
       - name: build
         id: build # it is needed to pass variable between steps
         run: |
+          echo "::notice:: This is notice message"
           echo build is running
           echo "BUILD_STAGE=debug" >> $GITHUB_OUTPUT
           touch build-result.txt
