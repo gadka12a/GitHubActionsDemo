@@ -5,6 +5,13 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  # call from another workflow
+  workflow_call:
+    inputs:
+      title:
+        required: true
+        type: string
+  # call from user via github wui
   workflow_dispatch:
     inputs:
       branch:
@@ -30,10 +37,15 @@ jobs:
       - name: checkout
         run: echo Branch name ${{ github.event.inputs.branch }}
       - name: build
-        run: echo Warning analyzer ${{ github.event.inputs.warning_analyzer }}
+        id: build
+        run: |
+          echo build is running
+          echo "BUILD_STAGE=debug" >> $GITHUB_OUTPUT
       - name: warning-analyzer
         if: ${{ github.event.inputs.warning_analyzer == 'true' || github.event_name != 'workflow_dispatch' }}
-        run: echo checking warnings
+        run: |
+          echo checking warnings
+          echo "The build stage is ${{ steps.build.outputs.BUILD_STAGE}}"
       - name: post-action
         run: echo uploading artifacts
   ut:
