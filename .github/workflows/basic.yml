@@ -97,7 +97,7 @@ jobs:
           path: |
             - test.txt
             - test2.txt
-          key: ${{ runner.os }}-ut-${{ env.cache-name }}-${{ hashFiles(test.txt) }}
+          key: ${{ runner.os }}-ut-${{ env.cache-name }}-${{ hashFiles(**/test.txt) }}
           restore-keys: |
             - ${{ runner.os }}-ut-${{ env.cache-name }}-
             - ${{ runner.os }}-ut-
