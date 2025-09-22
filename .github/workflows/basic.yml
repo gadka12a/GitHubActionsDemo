@@ -32,7 +32,7 @@ jobs:
     defaults: # this overrides defaults at the level of workflow
       run:
         shell: bash
-        working-directory: repo
+        working-directory: workdir
     steps:
       - name: checkout
         run: echo Branch name ${{ github.event.inputs.branch }}
