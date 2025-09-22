@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults: # this overrides defaults at the level of workflow
       run:
-        shell: powershell
+        shell: bash
         working-directory: repo
     steps:
       - name: checkout
