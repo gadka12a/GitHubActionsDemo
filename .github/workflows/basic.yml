@@ -18,7 +18,7 @@ on:
     branches: [ main ]
   workflow_run:
     workflows: ["verify file"]
-    types: [completed]
+    types: [completed] # (completed, requested)
   # call from another workflow
   workflow_call:
     inputs:
@@ -117,8 +117,19 @@ jobs:
             - ${{ runner.os }}-ut-
             - ${{ runner.os }}-
   call_other_workflow:
+    # concurrency:
+    #   group: ${{ github.ref}}
+    #   cancel-in-progress: true
     uses: ./.github/workflows/demo1.yml
     with:
       text: "This is text send from CI workflows"
+  use_workflow_with_matrix:
+    strategy:
+      matrix:
+        prod: [prod1, prod2]
+        level: [dev, stage, prod]
+    uses: ./.github/workflows/demo1.yml
+    with:
+      text: "Prod: ${{ matrix.prod}}, Level: ${{ matrix.level }}"
     
         
