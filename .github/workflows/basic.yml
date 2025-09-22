@@ -43,6 +43,16 @@ jobs:
         run: |
           echo build is running
           echo "BUILD_STAGE=debug" >> $GITHUB_OUTPUT
+          touch build-result.txt
+          echo 'build results :0' > build-result.txt
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: build-results
+          path:
+            build-result.txt
+          if-no-files-found: ignore # (error, warn, ignore) default vale is warn
+          retention-days: 7 # value from 1 to 30, default value is 0 (0 = default value set in settings)
       - name: warning-analyzer
         if: ${{ github.event.inputs.warning_analyzer == 'true' || github.event_name != 'workflow_dispatch' }}
         run: |
