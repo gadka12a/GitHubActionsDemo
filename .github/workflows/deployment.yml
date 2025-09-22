@@ -41,7 +41,7 @@ jobs:
         with:
           tag_name: v${{ vars.DEV_VERSION }}
           token: ${{ secrets.DEV_TOKEN }}
-          prelease: true
+          prerelease: true
           draft:  true
           name: dev
           files: greetings-deploy.jar
@@ -62,7 +62,7 @@ jobs:
         with:
           tag_name: v${{ vars.PROD_VERSION }}
           token: ${{ secrets.PROD_TOKEN }}
-          prelease: true
+          generate_release_notes: true
           draft:  true
           name: dev
           files: greetings-deploy.jar
