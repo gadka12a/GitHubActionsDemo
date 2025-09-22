@@ -134,5 +134,14 @@ jobs:
     uses: ./.github/workflows/demo1.yml
     with:
       text: "Prod: ${{ matrix.prod}}, Level: ${{ matrix.level }}"
+  summary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add summary
+        run: |
+          echo "Testing summary follows:" >> $GITHUB_STEP_SUMMARY
+          echo "| Test | Results | " >> $GITHUB_STEP_SUMMARY
+          echo "| ----: | ----: | " >> $GITHUB_STEP_SUMMARY
+          echo "|    1  | :white_check_mark: | " >> $GITHUB_STEP_SUMMARY
     
         
