@@ -22,17 +22,17 @@ on:
         required: true
         default: true
         type: boolean
-defaults:
-  run:
-    shell: bash
-    working-directory: workdir
+# defaults:
+#   run:
+#     shell: bash
+#     working-directory: workdir
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults: # this overrides defaults at the level of workflow
-      run:
-        shell: bash
-        working-directory: workdir
+    # defaults: # this overrides defaults at the level of workflow
+    #   run:
+    #     shell: bash
+    #     working-directory: workdir
     steps:
       - name: checkout
         run: echo Branch name ${{ github.event.inputs.branch }}
