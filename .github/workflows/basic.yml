@@ -112,5 +112,10 @@ jobs:
           restore-keys: |
             - ${{ runner.os }}-ut-${{ env.cache-name }}-
             - ${{ runner.os }}-ut-
-            - ${{ runner.os }}- 
+            - ${{ runner.os }}-
+  call_other_workflow:
+    uses: ./.github/workflows/demo1.yml
+    with:
+      text: "This is text send from CI workflows"
+    
         
