@@ -79,6 +79,7 @@ jobs:
         run: | 
           ls -la
           touch test.txt
+          echo 'random text' > test.txt
           pwd
           ls -la
       - name: test 2
@@ -88,4 +89,17 @@ jobs:
           pwd
           ls -la
           echo test
+      - name: Cache
+        uses: actions/cache@v4.2.4
+        env:
+          cache-nama: ut-cache
+        with: 
+          path: |
+            - test.txt
+            - test2.txt
+          key: ${{ runner-os }}-ut-${{ env.cache-name }}-${{ hashFiles(test.txt) }}
+          restore-keys: |
+            - ${{ runner-os }}-ut-${{ env.cache-name }}-
+            - ${{ runner-os }}-ut-
+            - ${{ runner-os }}- 
         
