@@ -1,8 +1,19 @@
 name: CI
 
 on:
+  # issues:
+  #   types: # could also be [opened, edited, closed]
+  #     - opened
   push:
     branches: [ main ]
+    # branches-ignore:
+    #   - 'prod*'
+    # tags-ignore:
+    #   - 'rc*'
+    # paths-ignore:
+    #   - '**.txt'
+    # paths:
+    #   - '**.yaml'
   pull_request:
     branches: [ main ]
   # call from another workflow
