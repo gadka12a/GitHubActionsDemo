@@ -33,11 +33,13 @@ jobs:
     #   run:
     #     shell: bash
     #     working-directory: workdir
+    outputs: # it is needed to pass outputs between jobs
+      build-stage: ${{ steps.build.outputs.BUILD_STAGE }}
     steps:
       - name: checkout
         run: echo Branch name ${{ github.event.inputs.branch }}
       - name: build
-        id: build
+        id: build # it is needed to pass variable between steps
         run: |
           echo build is running
           echo "BUILD_STAGE=debug" >> $GITHUB_OUTPUT
@@ -48,6 +50,12 @@ jobs:
           echo "The build stage is ${{ steps.build.outputs.BUILD_STAGE}}"
       - name: post-action
         run: echo uploading artifacts
+  post-build:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get stage
+        run: echo "The build stage is ${{ needs.build.outputs.build-stage }}"
   ut:
     runs-on: ubuntu-latest
     steps:
