@@ -95,8 +95,8 @@ jobs:
           cache-name: ut-cache
         with: 
           path: |
-            - test.txt
-            - test2.txt
+            test.txt
+            test2.txt
           key: ${{ runner.os }}-ut-${{ env.cache-name }}-${{ hashFiles('**/test.txt') }}
           restore-keys: |
             - ${{ runner.os }}-ut-${{ env.cache-name }}-
