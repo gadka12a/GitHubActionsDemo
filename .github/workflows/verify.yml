@@ -3,7 +3,11 @@ name: verify file
 on:
   push:
   pull_request:
-
+  workflow_dispatch:
+    inputs:
+      title:
+        required: true
+        type: string
 jobs:
   verify:
     name: ${{ vars.JOB_NAME }}
